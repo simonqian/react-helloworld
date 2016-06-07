@@ -100,7 +100,7 @@ first, you should install node and npm.
 11. start server  
     `npm start`
 
-12. open browser: http://localhost:7777
+12. open browser: [http://localhost:7777](http://localhost:7777)
 
 ---
 if you clone this repository to local, just `npm install` and `npm start`.
