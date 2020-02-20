@@ -1,4 +1,4 @@
-# react.js hello world
+# react.js hello world . . 
 ---
 first, you should install node and npm.
 
