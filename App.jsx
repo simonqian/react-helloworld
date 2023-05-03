@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "./design.css"
 
 const App = () => {
   const [height, setHeight] = useState('');
@@ -47,7 +48,7 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="container">
       <label htmlFor="height">Enter your height (in cm):</label>
       <input type="number" id="height" name="height" value={height} onChange={handleHeightChange} />
       <br />

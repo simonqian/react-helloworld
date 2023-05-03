@@ -1,32 +1,41 @@
-var config = {
-  // 打包的入口文件
-  entry: './main.js',
+const path = require('path');
 
-  // 配置打包结果，path定义输出文件夹，filename定义打包结果文件的名称
+var config = {
+  entry: './main.js',
+  mode: 'deployment',
   output: {
-    path: './',
+    path: path.resolve(__dirname, './dist'),
     filename: 'index.js'
   },
 
-  // 设置服务器端口号
   devServer: {
-    inline: true,
-    port: 7777
+    static: {
+      directory: path.join(__dirname, './')
+    },
+    compress: true,
+    liveReload: true,
+    port: 7777,
+    historyApiFallback: true,
   },
 
-  // 配置模块的处理逻辑，用loaders定义加载器
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
+        use: {
+          loader: 'babel-loader',
+          options: {
+            babelrc: true 
+          }
         }
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   }
-}
+};
 
 module.exports = config;
